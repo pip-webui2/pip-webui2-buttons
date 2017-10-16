@@ -14,7 +14,13 @@ export class AppComponent {
 
   public list: any[] = [
     {
-      name: 'Main', id: 'main', route: 'main'
+      name: 'Drilldown list', id: 'drilldown_list', route: 'drilldown_list'
+    },
+    {
+      name: 'Action list', id: 'action_list', route: 'action_list'
+    },
+    {
+      name: 'Toggle buttons', id: 'toggle_buttons', route: 'toggle_buttons'
     }
   ];
 

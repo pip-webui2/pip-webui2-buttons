@@ -1,0 +1,22 @@
+.pip-button-toggle-group {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-direction: row;
+  -moz-box-flex-direction: row;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  .pip-button-toggle {
+    text-align: center;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    /deep/ .mat-button-toggle-label-content {
+        padding: 0px;
+        width: 100%;
+    }
+  }
+}
