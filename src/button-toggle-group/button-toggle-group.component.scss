@@ -1,3 +1,33 @@
-:host {
-    
+.pip-button-toggle-group {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-direction: row;
+  -moz-box-flex-direction: row;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  /deep/ .mat-button-toggle {
+    text-align: center;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    .mat-button-toggle-label-content {
+      padding: 0px;
+      width: 100%;
+    }
+  }
+}
+
+.pip-main-xs .pip-button-toggle-group,
+pip-main-sm .pip-button-toggle-group {
+  -webkit-box-flex-direction: column !important;
+  -moz-box-flex-direction: column !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
 }

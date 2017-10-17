@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonToggleGroup } from '@angular/material';
+import { MatButtonToggleModule} from '@angular/material';
 
 import { PipButtonToggleGroupComponent } from './button-toggle-group.component';
 
@@ -13,7 +13,7 @@ import { PipButtonToggleGroupComponent } from './button-toggle-group.component';
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MatButtonToggleGroup
+    MatButtonToggleModule
   ],
   exports: [
     PipButtonToggleGroupComponent
