@@ -20,4 +20,4 @@ import { PipButtonToggleGroupComponent } from './button-toggle-group.component';
   ],
   providers: [],
 })
-export class PipButtonModule { }
+export class PipButtonToggleGroupModule { }
