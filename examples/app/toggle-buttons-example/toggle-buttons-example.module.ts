@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatButtonToggleModule } from '@angular/material';
 
 import { ToggleButtonsExampleComponent } from './toggle-buttons-example.component';
-//import { PipDrilldownListModule } from '../pip-webui2-buttons';
+import { PipButtonToggleGroupModule } from '../pip-webui2-buttons';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,9 @@ import { ToggleButtonsExampleComponent } from './toggle-buttons-example.componen
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+
+    PipButtonToggleGroupModule
   ],
   exports: [
     ToggleButtonsExampleComponent
