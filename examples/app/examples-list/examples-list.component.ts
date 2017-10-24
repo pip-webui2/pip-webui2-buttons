@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { ExmapleListItem } from "./shared/examples-list.model";
 
 @Component({
 	selector: 'examples-list',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy
 	changeDetection: ChangeDetectionStrategy.Default
 })
 export class ExamplesListComponent {
-	@Input() list: any[];
+	@Input() list: ExmapleListItem[];
 	@Input() selectedItemIndex: number;
 	@Output() selectedItemIndexChange = new EventEmitter();
 
