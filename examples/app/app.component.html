@@ -10,10 +10,10 @@
               <mat-icon (click)="sidenav.open()">reorder</mat-icon>
           </button>
           <span fxFlex="grow">{{app}}</span>
-      <mat-form-field *ngIf="!activeMediaQuery">
+      <mat-form-field>
           <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
               <mat-option *ngFor="let theme of themes" [value]="theme">
-                  {{theme}}
+                  {{theme.name}}
               </mat-option>
           </mat-select>
       </mat-form-field>
