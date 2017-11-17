@@ -87,7 +87,6 @@ export class AppComponent {
   }
   
   public changeTheme() {
-    console.log(this.theme);
     this.service.selectedTheme = this.theme;
 
   }
