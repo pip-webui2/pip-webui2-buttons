@@ -10,13 +10,13 @@
               <mat-icon (click)="sidenav.open()">reorder</mat-icon>
           </button>
           <span fxFlex="grow">{{app}}</span>
-      <mat-form-field>
-          <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
-              <mat-option *ngFor="let theme of themes" [value]="theme">
-                  {{themesLocalNames[theme.name]}}
-              </mat-option>
-          </mat-select>
-      </mat-form-field>
+          <mat-form-field>
+            <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
+                <mat-option *ngFor="let theme of themes" [value]="theme">
+                    {{themesLocalNames[theme.name] || theme.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
       </span>
   </mat-toolbar>
 
