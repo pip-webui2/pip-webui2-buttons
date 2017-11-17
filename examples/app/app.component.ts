@@ -18,6 +18,24 @@ export class AppComponent {
   public mode: string;
   public app: string = 'Buttons';
   public url: string;
+
+  public themesLocalNames: any = {
+    "candy-theme": 'Candy',
+    "unicorn-dark-theme": 'Unicorn Dark',
+    "pip-blue-theme": 'Blue',
+    "pip-grey-theme": 'Grey',
+    "pip-pink-theme": 'Pink',
+    "pip-green-theme": 'Green',
+    "pip-navy-theme": 'Navy',
+    "pip-amber-theme": 'Amber',
+    "pip-orange-theme": 'Orange',
+    "pip-dark-theme": 'Dark',
+    "pip-black-theme": 'Black',
+    "bootbarn-warm-theme": 'Bootbarn Warm',
+    "bootbarn-cool-theme": 'Bootbarn Cool',
+    "bootbarn-mono-theme": 'Bootbarn Mono'
+
+  }
   
   public list: any[] = [
     {
