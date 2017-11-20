@@ -1,3 +1,4 @@
+
 examples-list {
     width: 300px;
 }
@@ -11,7 +12,6 @@ examples-list {
 
     overflow: hidden
 }
-
 
 ::ng-deep .mat-toolbar .mat-select-value {
     color: #fff !important;
@@ -28,11 +28,6 @@ examples-list {
 
 .pointer {
     cursor: default;
-}
-
-
-mat-sidenav, .nav {
-    background-color: #e6e6e6 !important;
 }
 
 .router {
