@@ -21,10 +21,10 @@ import { DrilldownListExampleComponent } from './drilldown-list-example/drilldow
 import { ToggleButtonsExampleComponent } from './toggle-buttons-example/toggle-buttons-example.component';
 
 const appRoutes: Routes = [
-  { path: 'action_list', component: ActionListExampleComponent },
   { path: 'drilldown_list', component: DrilldownListExampleComponent },
+  { path: 'action_list', component: ActionListExampleComponent },
   { path: 'toggle_buttons', component: ToggleButtonsExampleComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'action_list' }
+  { path: '', pathMatch: 'full', redirectTo: 'drilldown_list' }
 ];
 
 @NgModule({

@@ -56,8 +56,8 @@ export class AppComponent {
 		public media: ObservableMedia) {
 
 
-      this.themes = this.service.themes;
-      this.theme = this.service.selectedTheme;
+    this.themes = this.service.themes;
+    this.theme = this.service.selectedTheme;
   
     media.subscribe((change: MediaChange) => {
       this.activeMediaQuery = change && change.mqAlias == 'xs'? true : false;
@@ -66,12 +66,19 @@ export class AppComponent {
 
     router.events.subscribe((url:any) => {
     
-      if (url.url && url.url != this.url) {
-        this.url = url.url;
-        this.listIndex = this.list.findIndex((item) => {
-            return "/" + item.route == this.url;
-        })
+      let index: number;
+      console.log(url);
+      if (!url.url) {
+        this.listIndex = 0;
+        return;
       }
+      if (url.url != this.url) {
+        this.url = url.url;
+        index = this.list.findIndex((item) => {
+            return "/" + item.route == this.url;
+        });
+        this.listIndex = index == -1 ? 0: index; 
+      } 
     });
 
   }
