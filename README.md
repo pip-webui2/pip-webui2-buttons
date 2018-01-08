@@ -98,6 +98,14 @@ Example with using angular-material components: mat-button-toggle-group and mat-
     <img style="max-width: 300px" src="https://github.com/pip-webui2/pip-webui2-buttons/raw/master/doc/images/toggle-buttons.png"/>
 </a>
 
+## Installation
+
+To install this module using npm:
+
+```bash
+npm install pip-webui2-buttons --save
+```
+
 ## <a name="license"></a>License
 
 This module is released under [MIT license](License) and totally free for commercial and non-commercial use.
