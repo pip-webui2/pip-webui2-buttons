@@ -26,7 +26,13 @@
     margin-right: 8px;
     color: #999999 !important;
     white-space: normal;
+
     .mat-button-wrapper {
+      .mat-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+      }
       display: -webkit-box;
       display: -moz-box;
       display: -webkit-flex;
@@ -52,6 +58,7 @@
       line-height: 1em;
       margin-top: 8px;
       margin-bottom: 4px;
+      font-size: 14px;
       overflow: hidden;
       white-space: normal;
       word-wrap: break-word;
