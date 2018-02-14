@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit,  ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 import { PipThemesService, Theme } from 'pip-webui2-themes';
 import { ExmapleListItem } from "./examples-list/shared/examples-list.model";
 
@@ -34,9 +35,8 @@ export class AppComponent {
     "bootbarn-warm-theme": 'Bootbarn Warm',
     "bootbarn-cool-theme": 'Bootbarn Cool',
     "bootbarn-mono-theme": 'Bootbarn Mono'
-
   }
-  
+
   public list: any[] = [
     {
       name: 'Drilldown list', id: 'drilldown_list', route: 'drilldown_list'
@@ -46,6 +46,9 @@ export class AppComponent {
     },
     {
       name: 'Toggle buttons', id: 'toggle_buttons', route: 'toggle_buttons'
+    },
+    {
+      name: 'Fab speed dial', id: 'fab_speed_dial', route: 'fab_speed_dial'
     }
   ];
   @ViewChild('sidenav') sidenav: MatSidenav;
@@ -53,46 +56,35 @@ export class AppComponent {
   public constructor(
     private service: PipThemesService,
     private router: Router,
-		public media: ObservableMedia) {
-
-
+    private location: Location,
+    public media: ObservableMedia
+  ) {
     this.themes = this.service.themes;
     this.theme = this.service.selectedTheme;
-  
+
     media.subscribe((change: MediaChange) => {
-      this.activeMediaQuery = change && change.mqAlias == 'xs'? true : false;
-      this.mode = change && change.mqAlias == 'xs'? null : 'side';
-    })
-
-    router.events.subscribe((url:any) => {
-    
-      let index: number;
-      console.log(url);
-      if (!url.url) {
-        this.listIndex = 0;
-        return;
-      }
-      if (url.url != this.url) {
-        this.url = url.url;
-        index = this.list.findIndex((item) => {
-            return "/" + item.route == this.url;
-        });
-        this.listIndex = index == -1 ? 0: index; 
-      } 
+      this.activeMediaQuery = change && change.mqAlias == 'xs' ? true : false;
+      this.mode = change && change.mqAlias == 'xs' ? null : 'side';
     });
-
   }
 
-  public ngOnInit() {}
+  public ngOnInit() { 
+    this.listIndex = Math.max(0, this.list.findIndex((item) => {
+      return "/" + item.route == this.location.path();
+    }))
+  }
 
-  public ngAfterViewInit() {}
+  public ngAfterViewInit() {
+    
+  }
 
   public onListItemIndexChanged(index: number) {
-    
+
     this.listIndex = index;
+    console.log('here', index);
     this.sidenav.close();
   }
-  
+
   public changeTheme() {
     this.service.selectedTheme = this.theme;
 

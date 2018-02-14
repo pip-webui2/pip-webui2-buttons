@@ -15,15 +15,18 @@ import { AppComponent } from './app.component';
 import { DrilldownListExampleModule } from './drilldown-list-example/drilldown-list-example.module';
 import { ActionListExampleModule } from './action-list-example/action-list-example.module';
 import { ToggleButtonsExampleModule } from './toggle-buttons-example/toggle-buttons-example.module';
+import { FabSpeedDialExampleModule } from './fab-speed-dial-example/fab-speed-dial-example.module';
 
 import { ActionListExampleComponent } from './action-list-example/action-list-example.component';
 import { DrilldownListExampleComponent } from './drilldown-list-example/drilldown-list-example.component';
 import { ToggleButtonsExampleComponent } from './toggle-buttons-example/toggle-buttons-example.component';
+import { FabSpeedDialExampleComponent } from './fab-speed-dial-example/fab-speed-dial-example.component';
 
 const appRoutes: Routes = [
   { path: 'drilldown_list', component: DrilldownListExampleComponent },
   { path: 'action_list', component: ActionListExampleComponent },
   { path: 'toggle_buttons', component: ToggleButtonsExampleComponent },
+  { path: 'fab_speed_dial', component: FabSpeedDialExampleComponent },
   { path: '', pathMatch: 'full', redirectTo: 'drilldown_list' }
 ];
 
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
     DrilldownListExampleModule,
     ActionListExampleModule,
     ToggleButtonsExampleModule,
+    FabSpeedDialExampleModule,
 
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
