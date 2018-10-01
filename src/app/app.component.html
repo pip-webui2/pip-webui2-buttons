@@ -5,12 +5,19 @@
   </mat-sidenav>
 
   <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
-    <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
-      <button mat-icon-button *ngIf="activeMediaQuery">
-        <mat-icon (click)="sidenav.open()">reorder</mat-icon>
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+      <span fxFlex="grow">{{app}}</span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-right: 8px">
+        <mat-icon>format_color_fill</mat-icon>
       </button>
-      <span fxFlex="grow" class="pointer">{{app}}</span>
-    </span>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let th of themes" mat-menu-item (click)="changeTheme(th)">
+          {{ themesLocalNames[th?.name] }}
+          <mat-icon *ngIf="th === theme" style="margin-bottom: 10px">check</mat-icon>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
   </mat-toolbar>
 
   <div fxLayout="row" style="height: calc(100% - 68px);">

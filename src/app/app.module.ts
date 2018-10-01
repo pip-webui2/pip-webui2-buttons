@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule, BREAKPOINTS, DEFAULT_BREAKPOINTS } from '@angular/flex-layout';
-import { MatIconModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { PipThemesModule } from 'pip-webui2-themes-temp';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,9 +26,13 @@ export const CustomBreakPointsProvider = {
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
+
+    PipThemesModule,
 
     AppRoutingModule,
     ActionListExampleModule,

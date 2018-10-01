@@ -3,7 +3,7 @@ import { MatSidenav } from '@angular/material';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-// import { PipThemesService, Theme } from 'pip-webui2-themes';
+import { PipThemesService, Theme } from 'pip-webui2-themes-temp';
 import { ExmapleListItem } from './examples-list/shared/ExampleListItem';
 
 @Component({
@@ -13,29 +13,29 @@ import { ExmapleListItem } from './examples-list/shared/ExampleListItem';
 })
 export class AppComponent implements OnInit {
   public listIndex = 0;
-  // public themes: Theme[];
-  // public theme: Theme;
+  public themes: Theme[];
+  public theme: Theme;
   public activeMediaQuery: boolean;
   public mode: string;
   public app = 'Buttons';
   public url: string;
 
-  // public themesLocalNames: any = {
-  //   'candy-theme': 'Candy',
-  //   'unicorn-dark-theme': 'Unicorn Dark',
-  //   'pip-blue-theme': 'Blue',
-  //   'pip-grey-theme': 'Grey',
-  //   'pip-pink-theme': 'Pink',
-  //   'pip-green-theme': 'Green',
-  //   'pip-navy-theme': 'Navy',
-  //   'pip-amber-theme': 'Amber',
-  //   'pip-orange-theme': 'Orange',
-  //   'pip-dark-theme': 'Dark',
-  //   'pip-black-theme': 'Black',
-  //   'bootbarn-warm-theme': 'Bootbarn Warm',
-  //   'bootbarn-cool-theme': 'Bootbarn Cool',
-  //   'bootbarn-mono-theme': 'Bootbarn Mono'
-  // };
+  public themesLocalNames: any = {
+    'candy-theme': 'Candy',
+    'unicorn-dark-theme': 'Unicorn Dark',
+    'pip-blue-theme': 'Blue',
+    'pip-grey-theme': 'Grey',
+    'pip-pink-theme': 'Pink',
+    'pip-green-theme': 'Green',
+    'pip-navy-theme': 'Navy',
+    'pip-amber-theme': 'Amber',
+    'pip-orange-theme': 'Orange',
+    'pip-dark-theme': 'Dark',
+    'pip-black-theme': 'Black',
+    'bootbarn-warm-theme': 'Bootbarn Warm',
+    'bootbarn-cool-theme': 'Bootbarn Cool',
+    'bootbarn-mono-theme': 'Bootbarn Mono'
+  };
 
   public list: ExmapleListItem[] = [
     {
@@ -62,13 +62,13 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
 
   public constructor(
-    // private service: PipThemesService,
+    private service: PipThemesService,
     private router: Router,
     private location: Location,
     public media: ObservableMedia
   ) {
-    // this.themes = this.service.themes;
-    // this.theme = this.service.selectedTheme;
+    this.themes = this.service.themes;
+    this.theme = this.service.selectedTheme;
 
     media.subscribe((change: MediaChange) => {
       this.activeMediaQuery = change && change.mqAlias === 'xs' ? true : false;
@@ -87,7 +87,8 @@ export class AppComponent implements OnInit {
     this.sidenav.close();
   }
 
-  public changeTheme() {
-    // this.service.selectedTheme = this.theme;
+  public changeTheme(theme) {
+    this.theme = theme;
+    this.service.selectedTheme = theme;
   }
 }
