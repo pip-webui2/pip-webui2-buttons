@@ -9,7 +9,8 @@
     "build:lib": "ng build pip-webui2-buttons",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package": "npm run build:lib && copy .\\LICENSE .\\dist\\pip-webui2-buttons && copy .\\README.md .\\dist\\pip-webui2-buttons && cd dist/pip-webui2-buttons && npm pack"
   },
   "private": false,
   "dependencies": {
