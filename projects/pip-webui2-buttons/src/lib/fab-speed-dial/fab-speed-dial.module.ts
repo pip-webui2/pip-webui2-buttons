@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 import { PipFabSpeedDialActionsComponent } from './fab-speed-dial-actions.component';
@@ -11,6 +11,7 @@ const COMPONENTS = [PipFabSpeedDialComponent, PipFabSpeedDialActionsComponent, P
     CommonModule
   ],
   declarations: COMPONENTS,
-  exports: COMPONENTS
+  exports: COMPONENTS,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PipFabSpeedDialModule { }

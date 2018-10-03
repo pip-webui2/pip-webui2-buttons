@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PipDrilldownListComponent } from './drilldown-list.component';
 
@@ -7,6 +7,7 @@ import { PipDrilldownListComponent } from './drilldown-list.component';
     CommonModule
   ],
   declarations: [PipDrilldownListComponent],
-  exports: [PipDrilldownListComponent]
+  exports: [PipDrilldownListComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PipDrilldownListModule { }

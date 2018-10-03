@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonToggleModule} from '@angular/material';
@@ -12,6 +12,7 @@ import { PipButtonToggleGroupComponent } from './button-toggle-group.component';
     MatButtonToggleModule
   ],
   declarations: [PipButtonToggleGroupComponent],
-  exports: [PipButtonToggleGroupComponent]
+  exports: [PipButtonToggleGroupComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PipButtonToggleGroupModule { }

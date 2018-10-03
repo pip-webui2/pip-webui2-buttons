@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipActionListComponent } from './action-list.component';
@@ -9,6 +9,7 @@ import { PipActionListComponent } from './action-list.component';
     FlexLayoutModule
   ],
   exports: [PipActionListComponent],
-  declarations: [PipActionListComponent]
+  declarations: [PipActionListComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PipActionListModule { }
