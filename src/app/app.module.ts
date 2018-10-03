@@ -15,7 +15,8 @@ import { ToggleButtonsExampleModule } from './toggle-buttons-example/toggle-butt
 
 export const CustomBreakPointsProvider = {
   provide: BREAKPOINTS,
-  useValue: [...DEFAULT_BREAKPOINTS]
+  useValue: [...DEFAULT_BREAKPOINTS],
+  multi: true
 };
 
 @NgModule({

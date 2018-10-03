@@ -11,6 +11,7 @@ export class FabSpeedDialExampleComponent implements OnInit {
   public spin = false;
   public direction = 'up';
   public animationMode = 'fling';
+  public fixed = false;
 
   constructor() { }
 
