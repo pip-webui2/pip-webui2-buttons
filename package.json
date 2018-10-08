@@ -1,6 +1,6 @@
 {
   "name": "pip-webui2-buttons",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.9",
     "core-js": "^2.5.4",
-    "pip-webui2-themes-temp": "^1.0.0-beta.2",
+    "pip-webui2-themes": "^1.0.1",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

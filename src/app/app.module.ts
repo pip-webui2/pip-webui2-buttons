@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule, BREAKPOINTS, DEFAULT_BREAKPOINTS } from '@angular/flex-layout';
 import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
-import { PipThemesModule } from 'pip-webui2-themes-temp';
+import { PipThemesModule } from 'pip-webui2-themes';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';

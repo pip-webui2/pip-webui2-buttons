@@ -7,8 +7,8 @@ import {
   ContentChildren,
   QueryList,
 } from '@angular/core';
-
 import { MatButton } from '@angular/material';
+
 import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 
 const Z_INDEX_ITEM = 23;
