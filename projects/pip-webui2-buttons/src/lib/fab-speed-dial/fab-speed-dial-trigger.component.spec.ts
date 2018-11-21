@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 import { PipFabSpeedDialTriggerComponent } from './fab-speed-dial-trigger.component';
 
 describe('PipFabSpeedDialTriggerComponent', () => {
@@ -8,7 +9,13 @@ describe('PipFabSpeedDialTriggerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PipFabSpeedDialTriggerComponent ]
+      declarations: [ PipFabSpeedDialTriggerComponent ],
+      providers: [
+        {
+          provide: PipFabSpeedDialComponent,
+          useValue: {}
+        }
+      ]
     })
     .compileComponents();
   }));

@@ -47,3 +47,21 @@ No breaking changes in this version
 
 ### Bug Fixes
 No fixes in this version
+
+## <a name="1.1.0"></a> 1.1.0 (2018-11-21)
+
+* **Version update**: Update to Angular 7. Tests are fixed.
+
+### Features
+* **toggle buttons**: toggle buttons control
+* **action list**: action button list
+* **drilldown list**: drilldown button list 
+* **fab speed dial**: animated list of fab buttons
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+* Library tests works now. Run `npm run test:lib` to check it out;
+* Example tests works now. Run `npm run test` to check it out;
+* E2E tests works too. Run `npm run e2e` to check it out.

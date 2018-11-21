@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+import { PipActionListModule } from 'pip-webui2-buttons';
 
 import { ActionListExampleComponent } from './action-list-example.component';
 
@@ -8,9 +12,17 @@ describe('ActionListExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActionListExampleComponent ]
+      declarations: [ActionListExampleComponent],
+      imports: [
+        CommonModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatIconModule,
+
+        PipActionListModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

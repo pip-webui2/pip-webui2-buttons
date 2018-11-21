@@ -1,10 +1,40 @@
 import { TestBed, async } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { PipThemesModule } from 'pip-webui2-themes';
+
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ActionListExampleModule } from './action-list-example/action-list-example.module';
+import { ExamplesListModule } from './examples-list/examples-list.module';
+import { DrilldownListExampleModule } from './drilldown-list-example/drilldown-list-example.module';
+import { FabSpeedDialExampleModule } from './fab-speed-dial-example/fab-speed-dial-example.module';
+import { ToggleButtonsExampleModule } from './toggle-buttons-example/toggle-buttons-example.module';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
+      ],
+      imports: [
+        NoopAnimationsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+
+        PipThemesModule,
+
+        AppRoutingModule,
+        ActionListExampleModule,
+        ExamplesListModule,
+        DrilldownListExampleModule,
+        FabSpeedDialExampleModule,
+        ToggleButtonsExampleModule
       ],
     }).compileComponents();
   }));
@@ -12,16 +42,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'pip-webui2-buttons-example'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('pip-webui2-buttons-example');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to pip-webui2-buttons-example!');
   }));
 });

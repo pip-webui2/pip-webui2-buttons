@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule, MatButtonToggleModule, MatIconModule } from '@angular/material';
+import { PipButtonToggleGroupModule } from 'pip-webui2-buttons';
 
 import { ToggleButtonsExampleComponent } from './toggle-buttons-example.component';
 
@@ -8,9 +11,17 @@ describe('ToggleButtonsExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToggleButtonsExampleComponent ]
+      declarations: [ToggleButtonsExampleComponent],
+      imports: [
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonToggleModule,
+
+        PipButtonToggleGroupModule
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

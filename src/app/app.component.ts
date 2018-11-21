@@ -4,6 +4,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PipThemesService, Theme } from 'pip-webui2-themes';
+
 import { ExmapleListItem } from './examples-list/shared/ExampleListItem';
 
 @Component({
