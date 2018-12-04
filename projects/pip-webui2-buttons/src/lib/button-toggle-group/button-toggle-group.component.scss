@@ -67,14 +67,7 @@
     }
 }
 
-/*
-@import '~@angular/material/theming';
-@import "~pip-webui2-themes/src/styles.scss";
-// Plus imports for other components in your app.
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// **Be sure that you only ever include this mixin once!**
-@include mat-core();
+@import "~pip-webui2-themes/styles.scss";
 @mixin button-toggle-group-mixin($theme) {
     // Extract whichever individual palettes you need from the theme.
     $primary: map-get($theme, primary);
@@ -149,4 +142,3 @@
 .bootbarn-mono-theme {
     @include button-toggle-group-mixin($bootbarn-mono-theme);
 }
-*/

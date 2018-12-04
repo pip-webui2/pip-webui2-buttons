@@ -33,7 +33,7 @@ export const CustomBreakPointsProvider = {
     MatSidenavModule,
     MatToolbarModule,
 
-    PipThemesModule,
+    PipThemesModule.forRoot(),
 
     AppRoutingModule,
     ActionListExampleModule,

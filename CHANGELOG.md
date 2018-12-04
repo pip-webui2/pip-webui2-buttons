@@ -65,3 +65,19 @@ No breaking changes in this version
 * Library tests works now. Run `npm run test:lib` to check it out;
 * Example tests works now. Run `npm run test` to check it out;
 * E2E tests works too. Run `npm run e2e` to check it out.
+
+## <a name="1.1.1"></a> 1.1.1 (2018-12-04)
+
+Angular 7 minor updates, themes in example app updated, theme-specific styles are back
+
+### Features
+* **toggle buttons**: toggle buttons control
+* **action list**: action button list
+* **drilldown list**: drilldown button list 
+* **fab speed dial**: animated list of fab buttons
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+* Theme-specific styles are back
