@@ -27,7 +27,7 @@ describe('AppComponent', () => {
         MatSidenavModule,
         MatToolbarModule,
 
-        PipThemesModule,
+        PipThemesModule.forRoot(),
 
         AppRoutingModule,
         ActionListExampleModule,
