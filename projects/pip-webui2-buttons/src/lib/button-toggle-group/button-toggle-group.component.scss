@@ -67,7 +67,7 @@
     }
 }
 
-@import "~pip-webui2-themes/styles.scss";
+@import "~pip-webui2-themes/variables";
 @mixin button-toggle-group-mixin($theme) {
     // Extract whichever individual palettes you need from the theme.
     $primary: map-get($theme, primary);
@@ -87,58 +87,8 @@
     }
 }
 
-.unicorn-dark-theme {
-    @include button-toggle-group-mixin($dark-theme);
-}
-
-.candy-theme {
-    @include button-toggle-group-mixin($candy-app-theme);
-}
-
-.pip-blue-theme {
-    @include button-toggle-group-mixin($pip-blue-theme);
-}
-
-.pip-grey-theme {
-    @include button-toggle-group-mixin($pip-grey-theme);
-}
-
-.pip-navy-theme {
-    @include button-toggle-group-mixin($pip-navy-theme);
-}
-
-.pip-amber-theme {
-    @include button-toggle-group-mixin($pip-amber-theme);
-}
-
-.pip-green-theme {
-    @include button-toggle-group-mixin($pip-green-theme);
-}
-
-.pip-orange-theme {
-    @include button-toggle-group-mixin($pip-orange-theme);
-}
-
-.pip-pink-theme {
-    @include button-toggle-group-mixin($pip-pink-theme);
-}
-
-.pip-dark-theme {
-    @include button-toggle-group-mixin($pip-dark-theme);
-}
-
-.pip-black-theme {
-    @include button-toggle-group-mixin($pip-black-theme);
-}
-
-.bootbarn-warm-theme {
-    @include button-toggle-group-mixin($bootbarn-warm-theme);
-}
-
-.bootbarn-cool-theme {
-    @include button-toggle-group-mixin($bootbarn-cool-theme);
-}
-
-.bootbarn-mono-theme {
-    @include button-toggle-group-mixin($bootbarn-mono-theme);
+@each $class, $theme in $themes {
+    .#{$class} {
+        @include button-toggle-group-mixin($theme);
+    }
 }

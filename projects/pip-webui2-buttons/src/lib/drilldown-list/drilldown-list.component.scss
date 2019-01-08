@@ -125,7 +125,7 @@
     }
 }
 
-@import "~pip-webui2-themes/styles.scss";
+@import "~pip-webui2-themes/variables";
 @mixin drilldown-select-mixin($theme) {
     // Extract whichever individual palettes you need from the theme.
     $primary: map-get($theme, primary);
@@ -135,58 +135,8 @@
     }
 }
 
-.unicorn-dark-theme {
-    @include drilldown-select-mixin($dark-theme);
-}
-
-.candy-theme {
-    @include drilldown-select-mixin($candy-app-theme);
-}
-
-.pip-blue-theme {
-    @include drilldown-select-mixin($pip-blue-theme);
-}
-
-.pip-grey-theme {
-    @include drilldown-select-mixin($pip-grey-theme);
-}
-
-.pip-navy-theme {
-    @include drilldown-select-mixin($pip-navy-theme);
-}
-
-.pip-amber-theme {
-    @include drilldown-select-mixin($pip-amber-theme);
-}
-
-.pip-green-theme {
-    @include drilldown-select-mixin($pip-green-theme);
-}
-
-.pip-orange-theme {
-    @include drilldown-select-mixin($pip-orange-theme);
-}
-
-.pip-pink-theme {
-    @include drilldown-select-mixin($pip-pink-theme);
-}
-
-.pip-dark-theme {
-    @include drilldown-select-mixin($pip-dark-theme);
-}
-
-.pip-black-theme {
-    @include drilldown-select-mixin($pip-black-theme);
-}
-
-.bootbarn-warm-theme {
-    @include drilldown-select-mixin($bootbarn-warm-theme);
-}
-
-.bootbarn-cool-theme {
-    @include drilldown-select-mixin($bootbarn-cool-theme);
-}
-
-.bootbarn-mono-theme {
-    @include drilldown-select-mixin($bootbarn-mono-theme);
+@each $class, $theme in $themes {
+    .#{$class} {
+        @include drilldown-select-mixin($theme);
+    }
 }
