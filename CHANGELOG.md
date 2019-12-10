@@ -129,3 +129,19 @@ No breaking changes in this version
 
 ### Bug Fixes
 No fixes in this version
+
+## <a name="1.1.5"></a> 1.1.5 (2019-12-10)
+
+`accent` and `primary` colors switched in `mst-elegant-theme`
+
+### Features
+* **toggle buttons**: toggle buttons control
+* **action list**: action button list
+* **drilldown list**: drilldown button list 
+* **fab speed dial**: animated list of fab buttons
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+No fixes in this version
