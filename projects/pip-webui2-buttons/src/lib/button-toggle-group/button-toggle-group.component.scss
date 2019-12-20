@@ -1,5 +1,5 @@
 :host {
-    /deep/ mat-button-toggle-group {
+    ::ng-deep mat-button-toggle-group {
         width: 100%;
         display: -webkit-box;
         display: -moz-box;
@@ -74,7 +74,7 @@
     $accent: map-get($theme, accent);
     $background: map-get($theme, background);
     $foreground: map-get($theme, foreground);
-    :host /deep/ mat-button-toggle-group mat-button-toggle {
+    :host ::ng-deep mat-button-toggle-group mat-button-toggle {
         background-color: invert(mat-color($background, card, 0.054));
         &.mat-button-toggle-checked {
             background-color: mat-color($accent);
