@@ -1,13 +1,5 @@
-import {
-  Component,
-  AfterContentInit,
-  Renderer,
-  Inject,
-  forwardRef,
-  ContentChildren,
-  QueryList,
-} from '@angular/core';
-import { MatButton } from '@angular/material';
+import { Component, AfterContentInit, Inject, forwardRef, ContentChildren, QueryList, Renderer2 } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 
 import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 
@@ -23,7 +15,7 @@ export class PipFabSpeedDialActionsComponent implements AfterContentInit {
 
   constructor(
     @Inject(forwardRef(() => PipFabSpeedDialComponent)) private _parent: PipFabSpeedDialComponent,
-    private renderer: Renderer
+    private renderer: Renderer2
   ) { }
 
   ngAfterContentInit(): void {
@@ -37,7 +29,7 @@ export class PipFabSpeedDialActionsComponent implements AfterContentInit {
 
   private initButtonStates() {
     this._buttons.toArray().forEach((button, i) => {
-      this.renderer.setElementClass(button._getHostElement(), 'pip-fab-action-item', true);
+      this.renderer.addClass(button._getHostElement(), 'pip-fab-action-item');
       this.changeElementStyle(button._getHostElement(), 'z-index', '' + (Z_INDEX_ITEM - i));
     });
   }
@@ -90,6 +82,7 @@ export class PipFabSpeedDialActionsComponent implements AfterContentInit {
 
   private changeElementStyle(elem: any, style: string, value: string) {
     // FIXME - Find a way to create a "wrapper" around the action button(s) provided by the user, so we don't change it's style tag
-    this.renderer.setElementStyle(elem, style, value);
+    // FIXME - Find a way to create a "wrapper" around the action button(s) provided by the user, so we don't change it's style tag
+this.renderer.setStyle(elem, style, value);
   }
 }

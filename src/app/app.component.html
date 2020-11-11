@@ -1,6 +1,7 @@
 <mat-sidenav-container class="content" *ngIf="list">
   <mat-sidenav #sidenav>
-    <examples-list [list]="list" [selectedItemIndex]="listIndex" (selectedItemIndexChange)="onListItemIndexChanged($event);">
+    <examples-list [list]="list" [selectedItemIndex]="listIndex"
+                   (selectedItemIndexChange)="onListItemIndexChanged($event);">
     </examples-list>
   </mat-sidenav>
 
@@ -8,13 +9,22 @@
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
       <span fxFlex="grow">{{app}}</span>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-right: 8px">
+      <button mat-icon-button [matMenuTriggerFor]="menuLang" style="margin-right: 8px">
+        <mat-icon>translate</mat-icon>
+      </button>
+      <mat-menu #menuLang="matMenu">
+        <button *ngFor="let lang of languages" mat-menu-item (click)="changeLanguage(lang)">
+          {{ lang | translate }}
+          <mat-icon *ngIf="lang === language" style="margin-bottom: 10px">check</mat-icon>
+        </button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="menuTheme" style="margin-right: 8px">
         <mat-icon>format_color_fill</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
+      <mat-menu #menuTheme="matMenu">
         <button *ngFor="let th of themes" mat-menu-item (click)="changeTheme(th)">
-          {{ themesLocalNames[th?.name] }}
-          <mat-icon *ngIf="th === theme" style="margin-bottom: 10px">check</mat-icon>
+          {{ th?.displayName || th?.name }}
+          <mat-icon *ngIf="th.name === theme?.name" style="margin-bottom: 10px">check</mat-icon>
         </button>
       </mat-menu>
     </mat-toolbar-row>
@@ -22,7 +32,7 @@
 
   <div fxLayout="row" style="height: calc(100% - 68px);">
     <examples-list *ngIf="!activeMediaQuery" class="mat-elevation-z6 nav" [list]="list" [selectedItemIndex]="listIndex"
-      (selectedItemIndexChange)="onListItemIndexChanged($event)">
+                   (selectedItemIndexChange)="onListItemIndexChanged($event)">
     </examples-list>
     <div fxFlex="grow" style="width: calc(100% - 300px); overflow: auto">
       <mat-toolbar color="primary" *ngIf="list[listIndex]">

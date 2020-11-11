@@ -1,20 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ViewEncapsulation,
-  AfterContentInit,
-  ElementRef,
-  Renderer,
-  Inject,
-  forwardRef,
-  ContentChildren,
-  QueryList,
-  ContentChild,
-  HostBinding,
-  HostListener
-} from '@angular/core';
+import { Component, forwardRef, HostBinding, HostListener, Inject, Input } from '@angular/core';
 
 import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 

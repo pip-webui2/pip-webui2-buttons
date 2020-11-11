@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatIconModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 
 import { PipFabSpeedDialComponent } from './fab-speed-dial.component';
 import { PipFabSpeedDialModule } from './fab-speed-dial.module';

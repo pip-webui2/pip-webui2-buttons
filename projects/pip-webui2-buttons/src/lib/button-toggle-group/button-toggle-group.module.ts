@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonToggleModule} from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { PipButtonToggleGroupComponent } from './button-toggle-group.component';
 

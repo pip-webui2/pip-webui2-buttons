@@ -1,101 +1,113 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { PipThemesService, Theme } from 'pip-webui2-themes';
-
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AppTranslations } from './app.strings';
 import { ExmapleListItem } from './examples-list/shared/ExampleListItem';
+import { combineLatestMap } from './utils';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    public listIndex = 0;
-    public themes: Theme[];
-    public theme: Theme;
-    public activeMediaQuery: boolean;
-    public mode: string;
-    public app = 'Buttons';
-    public url: string;
+  private subs = new Subscription();
+  public listIndex = 0;
+  public mode: string;
+  public app = 'Buttons';
+  public url: string;
 
-    public themesLocalNames: any = {
-        'candy-theme': 'Candy',
-        'unicorn-dark-theme': 'Unicorn Dark',
-        'pip-blue-theme': 'Blue',
-        'pip-grey-theme': 'Grey',
-        'pip-pink-theme': 'Pink',
-        'pip-green-theme': 'Green',
-        'pip-navy-theme': 'Navy',
-        'pip-amber-theme': 'Amber',
-        'pip-orange-theme': 'Orange',
-        'pip-dark-theme': 'Dark',
-        'pip-black-theme': 'Black',
-        'bootbarn-warm-theme': 'Bootbarn Warm',
-        'bootbarn-cool-theme': 'Bootbarn Cool',
-        'bootbarn-mono-theme': 'Bootbarn Mono',
-        'mst-black-theme': 'MST Black',
-        'mst-black-dark-theme': 'MST Black Dark',
-        'mst-mono-theme': 'MST Mono',
-        'mst-orange-theme': 'MST Orange',
-        'mst-orange-dark-theme': 'MST Orange Dark',
-        'mst-elegant-theme': 'MST Elegant'
-    };
+  public ctx$: Observable<{
+    activeMediaQuery: boolean
+  }>;
+  public themes: Theme[];
+  public theme: Theme;
+  public languages = ['en', 'ru'];
+  public language: string;
 
-    public list: ExmapleListItem[] = [
-        {
-            name: 'Drilldown list',
-            id: 'drilldown_list',
-            route: 'drilldown_list'
-        },
-        {
-            name: 'Action list',
-            id: 'action_list',
-            route: 'action_list'
-        },
-        {
-            name: 'Toggle buttons',
-            id: 'toggle_buttons',
-            route: 'toggle_buttons'
-        },
-        {
-            name: 'Fab speed dial',
-            id: 'fab_speed_dial',
-            route: 'fab_speed_dial'
-        }
-    ];
-    @ViewChild('sidenav') sidenav: MatSidenav;
+  public list: ExmapleListItem[] = [
+    {
+      name: 'Drilldown list',
+      id: 'drilldown_list',
+      route: 'drilldown_list'
+    },
+    {
+      name: 'Action list',
+      id: 'action_list',
+      route: 'action_list'
+    },
+    {
+      name: 'Toggle buttons',
+      id: 'toggle_buttons',
+      route: 'toggle_buttons'
+    },
+    {
+      name: 'Fab speed dial',
+      id: 'fab_speed_dial',
+      route: 'fab_speed_dial'
+    }
+  ];
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
-    public constructor(
-        private service: PipThemesService,
-        private router: Router,
-        private location: Location,
-        public media: MediaObserver
-    ) {
-        this.themes = this.service.themes;
-        this.theme = this.service.selectedTheme;
+  public constructor(
+    private themeService: PipThemesService,
+    private router: Router,
+    private location: Location,
+    public media: MediaObserver,
+    private translate: TranslateService
+  ) {
+    this.themes = this.themeService.themesArray;
+    this.theme = this.themeService.currentTheme;
 
-        this.media.media$.subscribe((change: MediaChange) => {
-            this.activeMediaQuery = change && change.mqAlias === 'xs' ? true : false;
-            this.mode = change && change.mqAlias === 'xs' ? null : 'side';
+    this.translate.addLangs(this.languages);
+    Object.entries(AppTranslations).forEach(e => this.translate.setTranslation(e[0], e[1], true));
+    this.translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    this.translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+    this.language = this.translate.currentLang;
+
+    this.ctx$ = combineLatestMap({
+      activeMediaQuery: media.asObservable().pipe((map(changes => changes && changes.some(c => c.mqAlias === 'xs'))))
+    });
+
+    this.subs.add(router.events.subscribe((url: any) => {
+
+      if (url.url && url.url !== this.url) {
+        this.url = url.url;
+        this.listIndex = this.list.findIndex((item) => {
+          return '/' + item.route === this.url;
         });
-    }
 
-    public ngOnInit() {
-        this.listIndex = Math.max(0, this.list.findIndex((item) => {
-            return '/' + item.route === this.location.path();
-        }));
-    }
+        this.listIndex = this.listIndex < 0 ? 0 : this.listIndex;
+      }
+    }));
+  }
 
-    public onListItemIndexChanged(index: number) {
-        this.listIndex = index;
-        this.sidenav.close();
-    }
+  public ngOnInit() {
+    this.listIndex = Math.max(0, this.list.findIndex((item) => {
+      return '/' + item.route === this.location.path();
+    }));
+  }
 
-    public changeTheme(theme) {
-        this.theme = theme;
-        this.service.selectedTheme = theme;
-    }
+  public onListItemIndexChanged(index: number) {
+    this.listIndex = index;
+    this.sidenav.close();
+  }
+
+  public changeTheme(theme: Theme) {
+    this.theme = theme;
+    this.themeService.selectTheme(theme.name);
+  }
+
+  public changeLanguage(language: string) {
+    this.language = language;
+    this.translate.use(language);
+  }
 }

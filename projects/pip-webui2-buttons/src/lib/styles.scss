@@ -1,0 +1,7 @@
+@import 'button-toggle-group/button-toggle-group.component.mixin';
+@import 'drilldown-list/drilldown-list.component.mixin';
+
+@mixin pip-webui2-buttons-mixin($theme) {
+  @include pip-button-toggle-group-mixin($theme);
+  @include pip-drilldown-list-mixin($theme);
+}

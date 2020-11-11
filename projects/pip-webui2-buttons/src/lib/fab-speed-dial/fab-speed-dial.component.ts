@@ -1,16 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ViewEncapsulation,
-  AfterContentInit,
-  ElementRef,
-  Renderer,
-  ContentChild,
-  HostBinding,
-  HostListener
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, AfterContentInit, ElementRef, ContentChild, HostBinding, HostListener, Renderer2 } from '@angular/core';
 
 import { PipFabSpeedDialActionsComponent } from './fab-speed-dial-actions.component';
 
@@ -101,7 +89,7 @@ export class PipFabSpeedDialComponent implements AfterContentInit {
 
   @ContentChild(PipFabSpeedDialActionsComponent) _childActions: PipFabSpeedDialActionsComponent;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer) {
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
   }
 
   ngAfterContentInit(): void {
@@ -134,7 +122,7 @@ export class PipFabSpeedDialComponent implements AfterContentInit {
   }
 
   private _setElementClass(elemClass: string, isAdd: boolean) {
-    this.renderer.setElementClass(this.elementRef.nativeElement, `pip-${elemClass}`, isAdd);
+    isAdd ? this.renderer.addClass(this.elementRef.nativeElement, `pip-${elemClass}`) : this.renderer.removeClass(this.elementRef.nativeElement, `pip-${elemClass}`);
   }
 
 }

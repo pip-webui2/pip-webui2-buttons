@@ -1,0 +1,19 @@
+@mixin pip-button-toggle-group-mixin($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  :host ::ng-deep mat-button-toggle-group mat-button-toggle {
+    background-color: invert(mat-color($background, card, 0.054));
+
+    &.mat-button-toggle-checked {
+      background-color: mat-color($accent);
+      color: invert(mat-color($foreground, text)) !important;
+    }
+
+    &.mat-button-toggle-disabled {
+      background-color: invert(mat-color($background, card, 0.027));
+      color: mat-color($foreground, text, 0.14) !important;
+    }
+  }
+}
